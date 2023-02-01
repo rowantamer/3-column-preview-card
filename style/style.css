@@ -1,0 +1,176 @@
+:root {
+  --cl-primary-bright-orange: hsl(31, 77%, 52%);
+  --cl-primary-dark-cyan: hsl(158, 36%, 37%);
+  --cl-primary-very-dark-cyan: hsl(179, 100%, 13%);
+  --cl-primary-white: white;
+
+  --fs-paragraph: 14px;
+  --ff-fraunces: "Fraunces", serif;
+  --ff-montserrat: "Montserrat", sans-serif;
+  --fw-normal: 500;
+  --fw-bold: 700;
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+/*
+    3. Allow percentage-based heights in the application
+  */
+html,
+body {
+  height: 100%;
+}
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+    6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    8. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+    9. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+body {
+  font-family: var(--ff-fraunces);
+  font-weight: var(--fw-normal);
+  height: 100vh;
+}
+.car {
+  color: var(--cl-primary-white);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  height: auto;
+  width: auto;
+  padding: 20px;
+
+}
+.sedans__content {
+  background-color: var(--cl-primary-bright-orange);
+  border-radius: 10px 10px 0 0;
+ padding: 50px;
+ display: flex;
+ flex-direction: column;
+ gap:1.5rem;
+}
+ .suvs__content {
+  background-color: var(--cl-primary-dark-cyan);
+  padding: 50px;
+  display: flex;
+ flex-direction: column;
+ gap:1.5rem;
+}
+ .luxury__content {
+  background-color: var(--cl-primary-very-dark-cyan);
+  padding: 50px;
+  border-radius:0 0 10px 10px;
+  display: flex;
+ flex-direction: column;
+ gap:1.5rem;
+}
+
+.car__img{
+   width: 64px;
+    height:40px;
+}
+.car__title{
+  font-family: var(--ff-montserrat);
+  text-transform: uppercase;
+  font-weight: var(--fw-bold);
+}
+.btn{
+  border-radius:20px;
+  border-style: none;
+  display: flex;
+  justify-content: center;
+  border-color: var(--cl-primary-white);
+  padding: 10px 20px;
+  font-family: var(--ff-montserrat);
+  font-size: 0.8rem;
+  width: 8rem;
+}
+.sedans__content> button{
+  color: hsl(31, 77%, 52%);
+}
+.suvs__content>button{
+  color: hsl(158, 36%, 37%);
+}
+.luxury__content>button{
+  color: hsl(179, 100%, 13%);
+}
+.btn:is(:hover,:focus){
+  background-color: transparent;
+  color: white;
+  border-style: solid;
+}
+@media (min-width: 800px) {
+  .car {
+    display: grid;
+    grid-template-areas: 
+    "s su lu";
+    padding: 20px;
+  }
+  .sedans__content {
+    grid-area: s;
+    border-radius: 10px 0 0 10px;
+}
+   .suvs__content {
+    grid-area: su;
+  }
+   .luxury__content {
+    grid-area: lu;
+    border-radius:0px 10px 10px 0;
+}
+}
